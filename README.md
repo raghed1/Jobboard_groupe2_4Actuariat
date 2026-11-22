@@ -9,12 +9,12 @@ Projet réalisé dans le cadre du cours **Architecture Web Distribuée** (ESPRIT
 
 **Équipe : Pionneer**
 
-| Nom et prénom | 
+ 
 
-| Missaoui Jasser| 
-| Akrout Aziz | 
-| Jbeli Yassmine |
-| Selmi Raghed |
+ Missaoui Jasser 
+ Akrout Aziz 
+Jbeli Yassmine 
+Selmi Raghed 
 
 ## Architecture
 
