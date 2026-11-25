@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,9 +25,20 @@ import java.util.List;
 public class CandidateController {
 
     private final CandidateService candidateService;
+    private final String port;
 
-    public CandidateController(CandidateService candidateService) {
+    public CandidateController(CandidateService candidateService,
+                               @Value("${server.port}") String port) {
         this.candidateService = candidateService;
+        this.port = port;
+    }
+
+    // Endpoint de test du load balancing : indique quelle instance a répondu
+    @GetMapping("/port")
+    @Operation(summary = "Return the port of the instance (load balancing test)")
+    @ApiResponse(responseCode = "200", description = "Port of the instance that answered")
+    public String getPort() {
+        return "Réponse de l'instance candidat sur le port " + port;
     }
 
     @GetMapping
